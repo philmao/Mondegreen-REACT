@@ -1,27 +1,30 @@
-# REACT
+# Mondegreen-REACT
 
-## Global Dependencies
-
-nodemon
-
-```
-yarn global add nodemon
+##Install Dependencies
+From the root, run
 
 ```
-ESLiint (AirBnB) local
+yarn
 
 ```
-yarn add --dev eslint-config-airbnb eslint@^3.19.0 eslint-plugin-jsx-a11y@^5.0.1 eslint-plugin-import@^2.2.0 eslint-plugin-react@^7.0.1
-```
+##Run 
+*Make sure Monogdb is running in a sepreate terminal*
 
-ESLiint (AirBnB) Global
-
-```
-yarn global add eslint-config-airbnb eslint@^3.19.0 eslint-plugin-jsx-a11y@^5.0.1 eslint-plugin-import@^2.2.0 eslint-plugin-react@^7.0.1
-```
-ESLint Jest
+####Dev Mode
 
 ```
-yarn global add eslint-plugin-jest
+nodemon yarn start
+```
+
+####Prod Mode
 
 ```
+nodemon yarn start-prod
+```
+
+##Tutorials for every step of the project
+#####All Videos: 
+<a href="https://closebrace.com/categories/five-minute-react">Five Minute React</a> 
+
+##### Creating a user with Postman
+<a href="https://closebrace.com/tutorials/2017-07-18/five-minute-react-37-api-endpoint-registration">Five Minute React 37 - API Endpoint: Registration</a>
