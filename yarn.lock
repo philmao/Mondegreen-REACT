@@ -3232,6 +3232,12 @@ json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
 
+json2mongo@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/json2mongo/-/json2mongo-1.1.0.tgz#df7b3a28148d4b988d7a59dcc2a4a7046f4d1056"
+  dependencies:
+    mongodb "^2.2.11"
+
 json5@^0.5.0, json5@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
@@ -3417,6 +3423,10 @@ lodash.tonumber@^4.0.3:
 lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
+
+lodash@^3.1.0:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
 lodash@^4.0.0, lodash@^4.14.0, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1, lodash@~4.17.4:
   version "4.17.4"
@@ -3620,7 +3630,7 @@ mongodb-core@2.1.15:
     bson "~1.0.4"
     require_optional "~1.0.0"
 
-mongodb@2.2.31:
+mongodb@2.2.31, mongodb@^2.2.11, mongodb@~2.2.23:
   version "2.2.31"
   resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-2.2.31.tgz#1940445c661e19217bb3bf8245d9854aaef548db"
   dependencies:
@@ -3752,6 +3762,17 @@ node-libs-browser@^2.0.0:
     url "^0.11.0"
     util "^0.10.3"
     vm-browserify "0.0.4"
+
+node-mongo-seeds@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/node-mongo-seeds/-/node-mongo-seeds-2.3.1.tgz#fd2fa243c4a94182856b4fd995d434f84b046728"
+  dependencies:
+    errno "^0.1.4"
+    json2mongo "^1.1.0"
+    lodash "^3.1.0"
+    mongodb "~2.2.23"
+    optimist "^0.6.1"
+    q "^1.4.1"
 
 node-notifier@^5.0.2:
   version "5.1.2"
@@ -4489,7 +4510,7 @@ pure-color@^1.2.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/pure-color/-/pure-color-1.3.0.tgz#1fe064fb0ac851f0de61320a8bf796836422f33e"
 
-q@^1.1.2:
+q@^1.1.2, q@^1.4.1:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.0.tgz#dd01bac9d06d30e6f219aecb8253ee9ebdc308f1"
 
