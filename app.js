@@ -29,7 +29,7 @@ const authentication = require('./routes/api/authentication');
 const app = express();
 
 // Connect Mongoose
-mongoose.connect('mongodb://localhost/musiclist');
+mongoose.connect('mongodb://localhost/mondegreen');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

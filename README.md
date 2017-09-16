@@ -7,6 +7,7 @@ From the root, run
 yarn
 
 ```
+
 ## Run 
 *Make sure Monogdb is running in a sepreate terminal*
 
