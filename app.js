@@ -24,6 +24,7 @@ const index = require('./routes/index');
 const api = require('./routes/api/index');
 const users = require('./routes/api/users');
 const authentication = require('./routes/api/authentication');
+const questions = require('./routes/api/questions');
 
 
 const app = express();
@@ -64,6 +65,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 app.use('/', index);
 app.use('/api/authentication', authentication);
+app.use('/api/questions', questions);
 app.use('/api', api);
 app.use('/api/users', users);
 app.use('/*', index);

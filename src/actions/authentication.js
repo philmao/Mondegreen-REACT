@@ -96,10 +96,10 @@ export function registerUser(userData) {
     // turn on spinnerrs
     dispatch(incrementProgress());
 
-    // register that a login attempt is being made
+    // register that a registration attempt is being made
     dispatch(registrationAttempt());
 
-    // contact login API
+    // contact registeration API
     await fetch(
       // where to contact
       '/api/authentication/register',

@@ -8,7 +8,7 @@ import LoginPage from './LoginPage';
 export class LoginPageContainer extends React.Component {
   constructor(props) {
     super(props);
-    // console.log('Someting in the constructor');
+    // console.log(props);
 
     // bound functions
     this.logUserInFunction = this.logUserInFunction.bind(this);
@@ -21,10 +21,12 @@ export class LoginPageContainer extends React.Component {
 
   render() {
     const { authentication } = this.props;
+    // console.log(this.props);
 
     if (authentication.isLoggedIn) {
       return (
-        <Redirect to="/" />
+        // <Redirect to="/" />
+        <Redirect to={`/account/profile/${this.props.authentication.username}`} />
       );
     }
 

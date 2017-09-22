@@ -11,6 +11,7 @@ const renderButtons = () => (
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
+    // console.log(this.props);
 
     this.logOutClick = this.logOutClick.bind(this);
     this.renderGreeting = this.renderGreeting.bind(this);
@@ -51,7 +52,7 @@ export default class Header extends React.Component {
       <header className="wrapper">
         <Navbar color="faded" light toggleable>
           <NavbarToggler right onClick={this.toggleNavbar} />
-          <NavbarBrand tag={Link} to="/">React</NavbarBrand>
+          <NavbarBrand tag={Link} to={`/account/profile/${this.props.authentication.username}`}>Mondegreen</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             {isLoggedIn ? this.renderGreeting(firstName) : renderButtons() }
           </Collapse>
