@@ -2,11 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
-const renderLogin = () => <NavLink tag={Link} to="/account/login">Log In</NavLink>;
+const renderButtons = () => (
+  <Nav className="ml-auto" navbar>
+    <NavItem><NavLink tag={Link} to="/account/login">Log In</NavLink></NavItem>
+    <NavItem><NavLink tag={Link} to="/account/register">Register</NavLink></NavItem>
+  </Nav>);
 
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
+    // console.log(this.props);
 
     this.logOutClick = this.logOutClick.bind(this);
     this.renderGreeting = this.renderGreeting.bind(this);
@@ -31,9 +36,13 @@ export default class Header extends React.Component {
 
   renderGreeting(name) {
     return (
-      <span>
-        Welcome, {name} | <a href="/logout" onClick={this.logOutClick}>Log Out</a>
-      </span>
+      <Nav className="ml-auto" navbar>
+        <NavItem>
+          <span>
+            Welcome, {name} | <a href="/logout" onClick={this.logOutClick}>Log Out</a>
+          </span>
+        </NavItem>
+      </Nav>
     );
   }
 
@@ -43,13 +52,9 @@ export default class Header extends React.Component {
       <header className="wrapper">
         <Navbar color="faded" light toggleable>
           <NavbarToggler right onClick={this.toggleNavbar} />
-          <NavbarBrand tag={Link} to="/">React</NavbarBrand>
+          <NavbarBrand tag={Link} to={`/account/profile/${this.props.authentication.username}`}>Mondegreen</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                {isLoggedIn ? this.renderGreeting(firstName) : renderLogin() }
-              </NavItem>
-            </Nav>
+            {isLoggedIn ? this.renderGreeting(firstName) : renderButtons() }
           </Collapse>
         </Navbar>
       </header>

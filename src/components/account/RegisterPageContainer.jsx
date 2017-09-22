@@ -1,27 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { logUserIn } from '../../actions/authentication';
+import { registerUser } from '../../actions/authentication';
 
-import LoginPage from './LoginPage';
+import RegisterPage from './RegisterPage';
 
-export class LoginPageContainer extends React.Component {
+export class RegisterPageContainer extends React.Component {
   constructor(props) {
     super(props);
-    // console.log(props);
+    console.log('anything');
 
     // bound functions
-    this.logUserInFunction = this.logUserInFunction.bind(this);
+    this.registerUserFunction = this.registerUserFunction.bind(this);
   }
 
-  logUserInFunction(userData) {
+  registerUserFunction(userData) {
     const { dispatch } = this.props;
-    dispatch(logUserIn(userData));
+    dispatch(registerUser(userData));
   }
 
   render() {
     const { authentication } = this.props;
-    // console.log(this.props);
 
     if (authentication.isLoggedIn) {
       return (
@@ -32,7 +31,7 @@ export class LoginPageContainer extends React.Component {
 
     return (
       <div>
-        <LoginPage loginFunction={this.logUserInFunction} />
+        <RegisterPage registerFunction={this.registerUserFunction} />
       </div>
     );
   }
@@ -44,4 +43,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(LoginPageContainer);
+export default connect(mapStateToProps)(RegisterPageContainer);
