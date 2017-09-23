@@ -29,6 +29,11 @@ const questions = require('./routes/api/questions');
 
 const app = express();
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 // Connect Mongoose
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mondegreen');
 
@@ -45,7 +50,14 @@ app.use(cookieParser());
 app.use(expressSession);
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'public')));
+
+// Serve up static assets if in production (running on Heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+} else {
+  app.use(express.static(__dirname + "/public"));  
+}
+// app.use(express.static(path.join(__dirname, 'public')));
 
 // Webpack Server
 if (process.env.NODE_ENV !== 'production') {
