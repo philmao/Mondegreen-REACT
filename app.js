@@ -68,7 +68,7 @@ app.use('/api/authentication', authentication);
 app.use('/api/questions', questions);
 app.use('/api', api);
 app.use('/api/users', users);
-app.use('/*', index);
+// app.use('/*', index);
 
 // Configure Passport
 passport.use(new LocalStrategy(User.authenticate()));
