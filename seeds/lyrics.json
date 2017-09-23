@@ -23,7 +23,7 @@
     {
       "id": 4,
       "misheard_lyric": "We built this city on sausage rolls",
-      "correct_lyric": "We built this city on rock n rolls",
+      "correct_lyric": "We built this city on rock and rolls",
       "artist": "Starship",
       "song_title": "We Built This City"
     },
@@ -100,9 +100,9 @@
     {
       "id": 15,
       "misheard_lyric": "Poppadom Peach",
-      "correct_lyric": "Papa dont preach",
+      "correct_lyric": "Papa don't preach",
       "artist": "Madonna",
-      "song_title": "Papa dont preach"
+      "song_title": "Papa don't preach"
     },
     {
       "id": 16,
@@ -120,10 +120,10 @@
     },
     {
       "id": 18,
-      "misheard_lyric": "Then I saw her face, now I’m gonna leave her",
-      "correct_lyric": "Then I saw her face, now I’m a believer",
+      "misheard_lyric": "Then I saw her face, now I'm gonna leave her",
+      "correct_lyric": "Then I saw her face, now I'm a believer",
       "artist": "The Monkees",
-      "song_title": "I’m a Believer"
+      "song_title": "I'm a Believer"
     },
     {
       "id": 19,
