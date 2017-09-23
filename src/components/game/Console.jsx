@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
+import AudioPlayer from '../audioplayer/audioplayer';
 
 export default function Console() {
   return (
@@ -9,6 +10,7 @@ export default function Console() {
         <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
         <Button>Button</Button>
       </Card>
+      <AudioPlayer />
     </div>
   );
 }
