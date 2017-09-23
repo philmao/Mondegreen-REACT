@@ -9,12 +9,8 @@ export default class ConsoleContainer extends Component {
     };
   }
 
-  async componentDidMount() {
-    const res = await fetch('http://localhost:3000/api/questions/all');
-    console.log(JSON.stringify(res));
+  componentDidMount() {
 
-    // this.setState({ questions: data });
-    // console.log(this.state.questions);
   }
 
   render() {
