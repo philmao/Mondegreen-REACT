@@ -30,7 +30,7 @@ const questions = require('./routes/api/questions');
 const app = express();
 
 // Connect Mongoose
-mongoose.connect('mongodb://localhost/mondegreen');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mondegreen');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
