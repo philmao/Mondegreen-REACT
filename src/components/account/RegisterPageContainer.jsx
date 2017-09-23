@@ -8,7 +8,6 @@ import RegisterPage from './RegisterPage';
 export class RegisterPageContainer extends React.Component {
   constructor(props) {
     super(props);
-    console.log('anything');
 
     // bound functions
     this.registerUserFunction = this.registerUserFunction.bind(this);

@@ -7,7 +7,7 @@ const router = express.Router();
 // configure mongoose promises
 mongoose.Promise = global.Promise;
 
-router.get('/:id', (req, res) => {
+router.get('/all', (req, res) => {
   Question.find()
   .then((doc) => {
     res.json(doc);
