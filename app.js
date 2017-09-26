@@ -29,8 +29,8 @@ const questions = require('./routes/api/questions');
 
 const app = express();
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
   next();
 });
 
@@ -52,12 +52,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Serve up static assets if in production (running on Heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-} else {
-  app.use(express.static(__dirname + "/public"));  
-}
-// app.use(express.static(path.join(__dirname, 'public')));
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static('client/build'));
+// } else {
+//   app.use(express.static(path.join(__dirname, 'public')));
+// }
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Webpack Server
 if (process.env.NODE_ENV !== 'production') {
@@ -75,12 +75,12 @@ if (process.env.NODE_ENV !== 'production') {
   }));
 }
 
-app.use('/', index);
+// app.use('/', index);
 app.use('/api/authentication', authentication);
 app.use('/api/questions', questions);
 app.use('/api', api);
 app.use('/api/users', users);
-// app.use('/*', index);
+app.use('/*', index);
 
 // Configure Passport
 passport.use(new LocalStrategy(User.authenticate()));
