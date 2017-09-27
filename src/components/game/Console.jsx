@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
+import AudioPlayer from '../audioplayer/audioplayer';
 
 export default class Console extends Component {
   render() {
@@ -14,6 +15,7 @@ export default class Console extends Component {
           </CardText>
           <Button onClick={this.props.next} >Button</Button>
         </Card>
+        <AudioPlayer />
       </div>
     );
   }

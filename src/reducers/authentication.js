@@ -27,6 +27,7 @@ export default function reducer(state = initialState, action) {
     case 'AUTHENTICATION_SESSION_CHECK_SUCCESS': {
       const newState = Object.assign({}, state);
       newState.firstName = action.json.firstName;
+      /* eslint no-underscore-dangle: ["error", { "allow": ["_id"] }] */
       newState.id = action.json._id;
       newState.isLoggedIn = true;
       newState.isLoggingIn = false;
