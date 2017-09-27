@@ -21,7 +21,7 @@ export class LoginPageContainer extends React.Component {
 
   render() {
     const { authentication } = this.props;
-    // console.log(this.props);
+    console.log(this.props);
 
     if (authentication.isLoggedIn) {
       return (

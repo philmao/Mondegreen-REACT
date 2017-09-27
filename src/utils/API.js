@@ -6,7 +6,6 @@ export default {
   },
   getOneQuestion: (id) => {
     console.log(`API  id=${id}`);
-
     return axios.get(`/api/questions/${id}`);
   },
 };

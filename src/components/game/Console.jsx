@@ -12,7 +12,7 @@ export default class Console extends Component {
           <CardTitle>Misheard Lyric: {question.misheard_lyric}</CardTitle>
           <CardText>Artist: {question.artist}
           </CardText>
-          <Button onClick={() => this.getQuestion()}>Button</Button>
+          <Button onClick={this.props.next} >Button</Button>
         </Card>
       </div>
     );

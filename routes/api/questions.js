@@ -17,11 +17,10 @@ router.get('/all', (req, res) => {
   });
 });
 
-router.get('', (req, res) => {
-  Question.findOne(id)
+router.get('/:id', (req, res) => {
+  Question.findOne({ id: req.params.id })
   .then((doc) => {
     res.json(doc);
-    // console.log(doc);
   }).catch((err) => {
     res.json(err);
   });

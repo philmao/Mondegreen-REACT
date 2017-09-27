@@ -7,18 +7,18 @@ export default class ConsoleContainer extends Component {
   constructor() {
     super();
     this.state = {
-      currentQuestion: '1',
+      currentQuestion: 1,
       question: [],
     };
+    console.log(`Constructor == ${this.state.currentQuestion}`);
 
     this.getQuestions = this.getQuestions.bind(this);
     this.getOneQuestion = this.getOneQuestion.bind(this);
+    this.nextQuestion = this.nextQuestion.bind(this);
   }
 
   componentDidMount() {
-    this.getQuestions();
-    // this.getOneQuestion();
-    console.log('Mounted');
+    this.getOneQuestion();
   }
 
   getQuestions() {
@@ -31,21 +31,25 @@ export default class ConsoleContainer extends Component {
 
   getOneQuestion() {
     const { currentQuestion } = this.state;
-    console.log(`Current ${currentQuestion}`);
+    console.log(`Current == ${currentQuestion}`);
 
-    console.log('getOneQuestion');
     API.getOneQuestion(currentQuestion).then((res) => {
       this.setState({ question: res.data });
-      // console.log(res);
     });
   }
 
-  render() {
-    console.log(this.state.question);
+  nextQuestion() {
+    console.log(`Before == ${this.state.currentQuestion}`);
+    const incrementQuestion = this.state.currentQuestion + 1;
+    this.setState({ currentQuestion: incrementQuestion });
+    console.log(`After == ${this.state.currentQuestion}`);
+    this.getOneQuestion();
+  }
 
+  render() {
     return (
       <div>
-        <Console question={this.state.question} />
+        <Console next={this.nextQuestion} question={this.state.question} />
       </div>
     );
   }
