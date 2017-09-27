@@ -4,7 +4,8 @@
   "env": {
     "jest/globals": true,
     "browser": true,
-    "node": true
+    "node": true,
+    "jquery": true
   },
   "rules": {
     "no-unused-vars": ["error", { "argsIgnorePattern": "next" }],
