@@ -26,7 +26,7 @@ const users = require('./routes/api/users');
 const authentication = require('./routes/api/authentication');
 const questions = require('./routes/api/questions');
 
-
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use((req, res, next) => {
@@ -108,4 +108,7 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
-module.exports = app;
+// module.exports = app;
+app.listen(PORT, () => {
+  console.log(`🌎 ==> Server now on port ${PORT}!`);
+});
