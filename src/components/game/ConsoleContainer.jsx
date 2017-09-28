@@ -9,8 +9,8 @@ export default class ConsoleContainer extends Component {
     this.state = {
       currentQuestion: 1,
       question: [],
+      userInput: '',
     };
-    console.log(`Constructor == ${this.state.currentQuestion}`);
 
     this.getQuestions = this.getQuestions.bind(this);
     this.getOneQuestion = this.getOneQuestion.bind(this);
@@ -25,31 +25,27 @@ export default class ConsoleContainer extends Component {
     console.log('getQuestions');
     API.getQuestions().then((res) => {
       this.setState({ question: res.data[0] });
-      // console.log(res);
     });
   }
 
   getOneQuestion() {
     const { currentQuestion } = this.state;
-    console.log(`Current == ${currentQuestion}`);
-
     API.getOneQuestion(currentQuestion).then((res) => {
       this.setState({ question: res.data });
     });
   }
 
   nextQuestion() {
-    console.log(`Before == ${this.state.currentQuestion}`);
     const incrementQuestion = this.state.currentQuestion + 1;
-    this.setState({ currentQuestion: incrementQuestion });
-    console.log(`After == ${this.state.currentQuestion}`);
-    this.getOneQuestion();
+    this.setState({ currentQuestion: incrementQuestion }, () => {
+      this.getOneQuestion();
+    });
   }
 
   render() {
     return (
       <div>
-        <Console next={this.nextQuestion} question={this.state.question} />
+        <Console props={this.state} next={this.nextQuestion} question={this.state.question} />
       </div>
     );
   }
