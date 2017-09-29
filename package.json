@@ -7,8 +7,7 @@
         "start-prod": "NODE_ENV=production node app.js",
         "test": "jest",
         "lint": "eslint .",
-        "build-prod": "NODE_ENV=production webpack -p --config webpack.config.babel.js",
-        "heroku-postbuild": ""
+        "build-prod": "NODE_ENV=production webpack -p --config webpack.config.babel.js"
     },
     "dependencies": {
         "axios": "^0.16.2",
