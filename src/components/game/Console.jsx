@@ -24,6 +24,8 @@ export default class Console extends Component {
     console.log(`User input string = ${userInput}`);
     console.log(`Misheard string = ${misheard_string}`);
     console.log(`Correct lyrics = ${correct_lyrics}`);
+    console.log(`%c User input string = ${userInput} `, 'color: white; background: blue;');
+    console.log(`%c Misheard string = ${misheard_string} `, 'color: white; background: green;');
   }
 
   handleChange(event) {
@@ -46,7 +48,7 @@ export default class Console extends Component {
           <CardFooter>
             <Form>
               <FormGroup>
-                <Input type="text" name="userInput" id="userInput" value={this.props.userInput} onChange={this.handleChange} placeholder="Write Correct Lyrics Here" />
+                <Input type="text" autoComplete="off" name="userInput" id="userInput" value={this.props.userInput} onChange={this.handleChange} placeholder="Write Correct Lyrics Here" />
               </FormGroup>
             </Form>
             <Button className="btn btn-success float-left" onClick={this.checkInput}>Submit</Button>
