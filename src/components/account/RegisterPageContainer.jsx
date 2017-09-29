@@ -8,7 +8,6 @@ import RegisterPage from './RegisterPage';
 export class RegisterPageContainer extends React.Component {
   constructor(props) {
     super(props);
-    console.log('anything');
 
     // bound functions
     this.registerUserFunction = this.registerUserFunction.bind(this);
@@ -24,7 +23,8 @@ export class RegisterPageContainer extends React.Component {
 
     if (authentication.isLoggedIn) {
       return (
-        <Redirect to="/" />
+        // <Redirect to="/" />
+        <Redirect to={`/account/profile/${this.props.authentication.username}`} />
       );
     }
 

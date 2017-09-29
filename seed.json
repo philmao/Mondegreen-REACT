@@ -1,0 +1,5 @@
+{
+  "undefined": "localhost/mondegreen",
+  "dev": "localhost/mondegreen",
+  "prod": "localhost/PROD_DB_NAME"
+}
