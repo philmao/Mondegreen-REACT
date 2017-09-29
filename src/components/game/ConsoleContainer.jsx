@@ -38,7 +38,7 @@ export default class ConsoleContainer extends Component {
 
   nextQuestion() {
     const incrementQuestion = this.state.currentQuestion + 1;
-    this.setState({ currentQuestion: incrementQuestion }, () => {
+    this.setState({ currentQuestion: incrementQuestion, userInput: '' }, () => {
       this.getOneQuestion();
     });
   }
