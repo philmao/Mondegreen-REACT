@@ -26,7 +26,7 @@ const users = require('./routes/api/users');
 const authentication = require('./routes/api/authentication');
 const questions = require('./routes/api/questions');
 
-
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use((req, res, next) => {
@@ -51,13 +51,8 @@ app.use(expressSession);
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Serve up static assets if in production (running on Heroku)
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static('client/build'));
-// } else {
-//   app.use(express.static(path.join(__dirname, 'public')));
-// }
-app.use(express.static(path.join(__dirname, 'public')));
+
+// app.use(express.static(path.join(__dirname, 'public')));
 
 // Webpack Server
 if (process.env.NODE_ENV !== 'production') {
@@ -80,7 +75,15 @@ app.use('/api/authentication', authentication);
 app.use('/api/questions', questions);
 app.use('/api', api);
 app.use('/api/users', users);
-app.use('/*', index);
+app.use('/', index);
+// Serve up static assets if in production (running on Heroku)
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('public'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+  });
+}
 
 // Configure Passport
 passport.use(new LocalStrategy(User.authenticate()));
@@ -105,4 +108,7 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
-module.exports = app;
+// module.exports = app;
+app.listen(PORT, () => {
+  console.log(`🌎 ==> Server now on port ${PORT}!`);
+});

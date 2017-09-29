@@ -7,10 +7,8 @@ class AudioPlayer extends React.Component {
     super(props);
     this.state = {
       player: false,
-      audio_track: props.audio_track,
-      start_time: props.start_time,
-      duration: props.duration,
     };
+    console.log(this.props);
   }
 
   componentDidMount() {
@@ -28,12 +26,12 @@ class AudioPlayer extends React.Component {
       const playbackTime = localStorage.getItem('ReactPlayer');
 
       if (playbackTime !== null) {
-        this.state.player.currentTime = this.state.start_time;
+        this.state.player.currentTime = this.props.start_time;
       }
 
       this.state.player.play();
 
-      const timeout = this.state.duration * 1000;
+      const timeout = 10 * 1000;
 
       setTimeout(() => {
         this.state.player.pause();
