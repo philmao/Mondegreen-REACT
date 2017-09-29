@@ -12,21 +12,10 @@ export default function ProfilePage(props) {
     <section className="page-content">
       <div className="container">
         <div className="row">
-        
           <Button id="start" color="secondary" size="lg" tag={Link} to={`/game_console/${match.params.id}`}>Start Playing!</Button>
-        
-        <Video>
-
-          </Video>
-
+          <Video />
         </div>
       </div>
     </section>
   );
 }
-
-
-
-
-
-
