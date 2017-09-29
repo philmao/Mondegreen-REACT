@@ -13,8 +13,10 @@ export default class Console extends Component {
     const { userInput } = this.props;
     const { misheard_string } = this.props.question;
 
-    if (misheard_string === userInput) {
+
+    if (userInput.indexOf(misheard_string) > -1) {
       console.log(true);
+      this.props.next();
     }
     console.log(userInput);
     console.log(misheard_string);
@@ -32,6 +34,8 @@ export default class Console extends Component {
     return (
       <div className="container">
         <Card block inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
+          <h3>Identfy the incorrect part of this lyric</h3>
+          <br />
           <CardTitle>Misheard Lyric: {question.misheard_lyric}</CardTitle>
           <CardText>Artist: {question.artist}
           </CardText>
@@ -43,8 +47,6 @@ export default class Console extends Component {
             </FormGroup>
             <Button onClick={this.checkInput}>Submit</Button>
           </Form>
-          <br />
-          <Button onClick={this.props.next}>Button</Button>
         </Card>
       </div>
     );
