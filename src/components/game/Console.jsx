@@ -9,7 +9,8 @@ export default class Console extends Component {
     this.checkInput = this.checkInput.bind(this);
   }
 
-  checkInput() {
+  checkInput(event) {
+    event.preventDefault();
     const { userInput } = this.props;
     const { misheard_string } = this.props.question;
 
