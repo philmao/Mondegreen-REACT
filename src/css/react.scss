@@ -78,3 +78,73 @@ header {
 .player {
   margin: 50px 50px;
 }
+
+#background-video{
+  
+  height: 100%;
+  width: 100%;
+  margin-top: -2em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: none;
+  display: flex;
+
+  // position: fixed; // optional depending on what you want
+  
+  
+  }
+
+  body {
+    background-color: black;
+  }
+
+  .navbar {
+    // background-color: black;
+   
+  }
+
+
+.btn-lg {
+  position: relative;
+}
+
+.btn-secondary {
+  margin-left: 42%;
+  margin-top: 2%
+}
+
+  a #start {
+    
+    position: absolute;
+    margin-left: 43%;
+    margin-top: 14%;
+    display: flex;
+    
+   
+  }
+
+  // MEDIA QUERY FOR START BUTTON
+
+  @media only screen and (max-width: 890px) {
+  .btn-secondary {
+      margin-left: 41%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+.btn-secondary {
+    margin-left: 39%;
+  }
+}
+
+@media only screen and (max-width: 463px) {
+.btn-secondary {
+    margin-left: 35%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+.btn-secondary {
+    margin-left: 30%;
+  }
+}
