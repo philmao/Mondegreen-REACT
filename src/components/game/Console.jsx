@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardHeader, CardBlock, Button, CardText, InputGroup, Input } from 'reactstrap';
 import '../../css/react.scss';
+import AudioPlayer from '../audioplayer/audioplayer';
 
 export default class Console extends Component {
   render() {
@@ -25,6 +26,12 @@ export default class Console extends Component {
         </InputGroup>
         <Button className="btn btn-success" onClick={this.props.next} >Go Back</Button>
         <Button className="btn btn-success" onClick={this.props.next} >Proceed</Button>
+        <Button className="btn btn-success" onClick={this.props.next} >Hint</Button>
+        <AudioPlayer
+          audio_track={this.props.audio_track}
+          start_time={this.props.start_time}
+          duration={this.props.duration}
+        />
       </div>
     );
   }

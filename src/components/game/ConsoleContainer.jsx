@@ -9,6 +9,9 @@ export default class ConsoleContainer extends Component {
     this.state = {
       currentQuestion: 1,
       question: [],
+      audio_track: '/audio/track_01.mp3',
+      start_time: 74,
+      duration: 4,
     };
     console.log(`Constructor == ${this.state.currentQuestion}`);
 
@@ -49,7 +52,13 @@ export default class ConsoleContainer extends Component {
   render() {
     return (
       <div>
-        <Console next={this.nextQuestion} question={this.state.question} />
+        <Console
+          next={this.nextQuestion}
+          question={this.state.question}
+          audio_track={this.state.audio_track}
+          start_time={this.state.start_time}
+          duration={this.state.duration}
+        />
       </div>
     );
   }
