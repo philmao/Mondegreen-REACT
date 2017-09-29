@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Button, CardTitle, CardText, InputGroup, InputGroupButton, Input } from 'reactstrap';
+import { Card, Button, CardTitle, CardText, InputGroup, InputGroupButton, Input, FormGroup, Form, Label } from 'reactstrap';
 
 export default class Console extends Component {
 
@@ -14,11 +14,22 @@ export default class Console extends Component {
           <CardText>Artist: {question.artist}
           </CardText>
           <br />
+          <Form>
+            <FormGroup>
+              <Label for="userInput">Email</Label>
+              <Input type="text" name="userInput" id="userInput" value={this.props.userInput} />
+            </FormGroup>
+            <Button onClick={this.props.checkInput}>Submit</Button>
+          </Form>
+          <br />
           <InputGroup>
-            <Input />
+            <Input
+              name="userInputx"
+              value={this.props.userInput}
+            />
             <InputGroupButton
               color="success"
-              value={this.props.userInput}
+              onClick={this.props.checkInput}
             >I'm a button</InputGroupButton>
           </InputGroup>
           <br />

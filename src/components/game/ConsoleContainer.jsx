@@ -15,6 +15,7 @@ export default class ConsoleContainer extends Component {
     this.getQuestions = this.getQuestions.bind(this);
     this.getOneQuestion = this.getOneQuestion.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
+    this.checkInput = this.checkInput.bind(this);
   }
 
   componentDidMount() {
@@ -42,10 +43,21 @@ export default class ConsoleContainer extends Component {
     });
   }
 
+  checkInput(event) {
+    console.log('Check');
+    console.log(event);
+  }
+
   render() {
     return (
       <div>
-        <Console props={this.state} next={this.nextQuestion} question={this.state.question} />
+        <Console
+          props={this.state}
+          checkInput={this.checkInput}
+          next={this.nextQuestion}
+          question={this.state.question}
+          userInput={this.state.userInput}
+        />
       </div>
     );
   }
