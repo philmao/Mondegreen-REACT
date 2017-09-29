@@ -3,11 +3,6 @@ import { Card, Button, CardTitle, CardText, InputGroup, InputGroupButton, Input 
 
 export default class Console extends Component {
 
-  checkInput(event) {
-    console.log('Check');
-    console.log(event);
-  }
-
   render() {
     const { question } = this.props;
     console.log('inConsole:', this.props);
@@ -24,11 +19,10 @@ export default class Console extends Component {
             <InputGroupButton
               color="success"
               value={this.props.userInput}
-              onClick={this.checkInput}
             >I'm a button</InputGroupButton>
           </InputGroup>
           <br />
-          <Button >Button</Button>
+          <Button onClick={this.props.next}>Button</Button>
         </Card>
       </div>
     );
