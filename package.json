@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "start": "node app.js",
-        "start-prod": "NODE_ENV=production node ./bin/www",
+        "start-prod": "NODE_ENV=production node app.js",
         "test": "jest",
         "lint": "eslint .",
         "build-prod": "NODE_ENV=production webpack -p --config webpack.config.babel.js",
