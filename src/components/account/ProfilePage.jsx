@@ -2,6 +2,7 @@ import { Button, Jumbotron } from 'reactstrap';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/react.scss';
+import Video from './VideoComponent';
 
 export default function ProfilePage(props) {
   const { match } = props;
@@ -15,6 +16,7 @@ export default function ProfilePage(props) {
           <hr />
           <p>Play the game and guess the correct lyrics from the misheard lyrics.</p>
         </Jumbotron>
+        <Video />
         <Button color="primary" size="lg" block tag={Link} to={`/game_console/${match.params.id}`}>Start Game</Button>
       </div>
     </section>

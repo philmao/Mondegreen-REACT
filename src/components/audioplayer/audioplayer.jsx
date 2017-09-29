@@ -29,20 +29,30 @@ class AudioPlayer extends React.Component {
         this.state.player.currentTime = this.props.start_time;
       }
 
-      this.state.player.play();
+      const playPromise = this.state.player.play();
+      const timeout = this.props.duration * 1000;
 
-      const timeout = 10 * 1000;
-
-      setTimeout(() => {
-        this.state.player.pause();
-      }, timeout);
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          // Automatic playback started!
+          // Show playing UI.
+          // We can now safely pause video...
+          setTimeout(() => {
+            this.state.player.pause();
+          }, timeout);
+        })
+        .catch((error) => {
+          // Auto-play was prevented
+          // Show paused UI.
+        });
+      }
     });
   }
 
   render() {
     return (
       <div className="audio-player">
-        <audio controls className="player" preload="false">
+        <audio controls className="player" preload="auto">
           <source src={this.props.audio_track} type="audio/mp3" />
           <track kind="captions" />
         </audio>

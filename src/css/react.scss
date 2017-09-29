@@ -103,3 +103,16 @@ header {
 .audio-player {
   margin-top: 20px;
 }
+
+#background-video {
+  position: absolute; 
+  right: 0; 
+  bottom: 0;
+  min-width: 200%; 
+  min-height: 400%;
+  width: auto; 
+  height: auto; 
+  z-index: -100;
+  background-size: cover;
+  overflow: hidden;
+}
