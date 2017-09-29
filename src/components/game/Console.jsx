@@ -18,8 +18,8 @@ export default class Console extends Component {
       console.log(true);
       this.props.next();
     }
-    console.log(userInput);
-    console.log(misheard_string);
+    console.log(`User input string = ${userInput}`);
+    console.log(`Misheard string = ${misheard_string}`);
   }
 
   handleChange(event) {
