@@ -12,15 +12,15 @@ export default class Console extends Component {
   checkInput(event) {
     event.preventDefault();
     const { userInput } = this.props;
-    const { misheard_string } = this.props.question;
+    const songTitle = this.props.question.song_title;
+    console.log(songTitle);
 
-
-    if (userInput.indexOf(misheard_string) > -1) {
+    if (userInput.toLowerCase().indexOf(songTitle.toLowerCase()) > -1) {
       console.log(true);
       this.props.next();
     }
     console.log(`%c User input string = ${userInput} `, 'color: white; background: blue;');
-    console.log(`%c Misheard string = ${misheard_string} `, 'color: white; background: green;');
+    console.log(`%c Song Title = ${songTitle} `, 'color: white; background: green;');
   }
 
   handleChange(event) {
@@ -35,7 +35,7 @@ export default class Console extends Component {
     return (
       <div className="container">
         <Card block inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
-          <h3>Identfy the incorrect part of this lyric</h3>
+          <h3>Identfy the song this misheard lyric belongs to</h3>
           <br />
           <CardTitle>Misheard Lyric: {question.misheard_lyric}</CardTitle>
           <CardText>Artist: {question.artist}
