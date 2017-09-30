@@ -11,7 +11,7 @@ const renderButtons = () => (
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
-    // console.log(this.props);
+    console.log(this.props);
 
     this.logOutClick = this.logOutClick.bind(this);
     this.renderGreeting = this.renderGreeting.bind(this);
