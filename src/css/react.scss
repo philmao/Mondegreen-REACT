@@ -75,44 +75,76 @@ header {
   margin: 30px 150px;
 }
 
-.card {
-  margin: 80px;
-  border-color: #23d160;
+.player {
+  margin: 50px 50px;
 }
 
-.card-header {
-  background-color: #23d160;
-  color: white;
+#background-video{
+  
+  height: 100%;
+  width: 100%;
+  margin-top: -2em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: none;
+  display: flex;
+
+  // position: fixed; // optional depending on what you want
+  
+  
+  }
+
+  body {
+    background-color: black;
+  }
+
+  .navbar {
+    // background-color: black;
+   
+  }
+
+
+.btn-lg {
+  position: relative;
 }
 
-.card-block {
-  background-color: white;
+.btn-secondary {
+  margin-left: 42%;
+  margin-top: 2%
 }
 
-#userInput {
-  border: 1px solid #23d160;
+  a #start {
+    
+    position: absolute;
+    margin-left: 43%;
+    margin-top: 14%;
+    display: flex;
+    
+   
+  }
+
+  // MEDIA QUERY FOR START BUTTON
+
+  @media only screen and (max-width: 890px) {
+  .btn-secondary {
+      margin-left: 41%;
+    }
 }
 
-.btn {
-  margin-top: 20px;
-  margin-right: 20px;
-  background-color: #23d160;
-  color: white;
+@media only screen and (max-width: 768px) {
+.btn-secondary {
+    margin-left: 39%;
+  }
 }
 
-.audio-player {
-  margin-top: 20px;
+@media only screen and (max-width: 463px) {
+.btn-secondary {
+    margin-left: 35%;
+  }
 }
 
-#background-video {
-  position: absolute; 
-  right: 0; 
-  bottom: 0;
-  min-width: 200%; 
-  min-height: 400%;
-  width: auto; 
-  height: auto; 
-  z-index: -100;
-  background-size: cover;
-  overflow: hidden;
+@media only screen and (max-width: 400px) {
+.btn-secondary {
+    margin-left: 30%;
+  }
 }

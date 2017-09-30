@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardHeader, CardBlock, CardFooter, Button, CardText, Input, FormGroup, Form } from 'reactstrap';
+import { Card, CardTitle, Label, Button, CardText, Input, FormGroup, Form } from 'reactstrap';
 import '../../css/react.scss';
 import AudioPlayer from '../audioplayer/audioplayer';
 
@@ -11,13 +11,14 @@ export default class Console extends Component {
     this.checkInput = this.checkInput.bind(this);
   }
 
-  checkInput() {
+  checkInput(event) {
+    event.preventDefault();
     const { userInput } = this.props;
-    const { misheard_string } = this.props.question;
-    const { correct_lyrics } = this.props;
+    const songTitle = this.props.question.song_title;
+    console.log(songTitle);
 
 
-    if (userInput.indexOf(misheard_string) > -1) {
+    if (userInput.toLowerCase().indexOf(songTitle.toLowerCase()) > -1) {
       console.log(true);
       this.props.next();
     }
@@ -25,7 +26,7 @@ export default class Console extends Component {
     console.log(`Misheard string = ${misheard_string}`);
     console.log(`Correct lyrics = ${correct_lyrics}`);
     console.log(`%c User input string = ${userInput} `, 'color: white; background: blue;');
-    console.log(`%c Misheard string = ${misheard_string} `, 'color: white; background: green;');
+    console.log(`%c Song Title = ${songTitle} `, 'color: white; background: green;');
   }
 
   handleChange(event) {
@@ -38,22 +39,20 @@ export default class Console extends Component {
 
     return (
       <div className="container">
-        <h1 className="title">Mondegreen</h1>
-        <p className="subtitle">Guess the correct lyrics using the misheard lyrics.</p>
-        <Card>
-          <CardHeader>The Misheard Lyric by {question.artist}</CardHeader>
-          <CardBlock>
-            <CardText>{question.misheard_lyric}</CardText>
-          </CardBlock>
-          <CardFooter>
-            <Form>
-              <FormGroup>
-                <Input type="text" autoComplete="off" name="userInput" id="userInput" value={this.props.userInput} onChange={this.handleChange} placeholder="Write Correct Lyrics Here" />
-              </FormGroup>
-            </Form>
-            <Button className="btn btn-success float-left" onClick={this.checkInput}>Submit</Button>
-            <Button className="btn btn-success float-right" onClick={this.props.next} >Next</Button>
-          </CardFooter>
+        <Card block inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
+          <h3>Identfy the song this misheard lyric belongs to</h3>
+          <br />
+          <CardTitle>Misheard Lyric: {question.misheard_lyric}</CardTitle>
+          <CardText>Artist: {question.artist}
+          </CardText>
+          <br />
+          <Form>
+            <FormGroup>
+              <Label for="userInput">Input Answer Below</Label>
+              <Input type="text" autoComplete="off" name="userInput" id="userInput" value={this.props.userInput} onChange={this.handleChange} />
+            </FormGroup>
+            <Button onClick={this.checkInput}>Submit</Button>
+          </Form>
         </Card>
         <AudioPlayer
           audio_track={question.audio_track}

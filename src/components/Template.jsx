@@ -14,7 +14,7 @@ export default function Template(props) {
       <div className="wrapper">
         <HeaderContainer authentication={authentication} />
         <section className="page-content container-fluid">
-          <Route exact path="/" component={ProfilePage} />
+          <Route exact path="/" component={LoginPage} />
           <Route exact path="/account/login" component={LoginPage} />
           <Route exact path="/account/register" component={RegisterPage} />
           <Route path="/account/profile/:id" component={ProfilePage} />
