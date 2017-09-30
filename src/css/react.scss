@@ -109,20 +109,14 @@ header {
   position: relative;
 }
 
-.btn-secondary {
+.btn-outline-success {
   margin-left: 42%;
-  margin-top: 22%
 }
 
 .jumbotron{
-
-  
   margin-left: 5%;
   margin-bottom: -36rem;
   background-color: rgba(0, 0, 0, 0.0);
- 
-
-
 }
 
 .display-3 {
@@ -173,5 +167,10 @@ p {
 @media only screen and (max-width: 400px) {
 .btn-secondary {
     margin-left: 30%;
+  }
+  .display-3 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.1;
   }
 }

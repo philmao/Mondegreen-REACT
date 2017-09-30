@@ -50,7 +50,7 @@ app.use(cookieParser());
 app.use(expressSession);
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 // Webpack Server
 if (process.env.NODE_ENV !== 'production') {
@@ -68,7 +68,7 @@ if (process.env.NODE_ENV !== 'production') {
   }));
 }
 
-app.use('/', index);
+// app.use('/', index);
 app.use('/api/authentication', authentication);
 app.use('/api/questions', questions);
 app.use('/api', api);
