@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Card, Button, CardTitle, CardText, Input, FormGroup, Form, Label } from 'reactstrap';
+import { Card, CardTitle, Label, Button, CardText, Input, FormGroup, Form } from 'reactstrap';
+import '../../css/react.scss';
+import AudioPlayer from '../audioplayer/audioplayer';
 
 export default class Console extends Component {
   constructor(props) {
@@ -15,10 +17,14 @@ export default class Console extends Component {
     const songTitle = this.props.question.song_title;
     console.log(songTitle);
 
+
     if (userInput.toLowerCase().indexOf(songTitle.toLowerCase()) > -1) {
       console.log(true);
       this.props.next();
     }
+    console.log(`User input string = ${userInput}`);
+    console.log(`Misheard string = ${misheard_string}`);
+    console.log(`Correct lyrics = ${correct_lyrics}`);
     console.log(`%c User input string = ${userInput} `, 'color: white; background: blue;');
     console.log(`%c Song Title = ${songTitle} `, 'color: white; background: green;');
   }
@@ -57,6 +63,11 @@ export default class Console extends Component {
             <Button onClick={this.checkInput}>Submit</Button>
           </Form>
         </Card>
+        <AudioPlayer
+          audio_track={question.audio_track}
+          start_time={question.start_time}
+          duration={question.duration}
+        />
       </div>
     );
   }

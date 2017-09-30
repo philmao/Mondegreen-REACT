@@ -23,7 +23,6 @@ export default class ConsoleContainer extends Component {
   }
 
   getQuestions() {
-    console.log('getQuestions');
     API.getQuestions().then((res) => {
       this.setState({ question: res.data[0] });
     });
