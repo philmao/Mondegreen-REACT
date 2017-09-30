@@ -79,30 +79,31 @@ header {
   margin: 50px 50px;
 }
 
-#background-video{
-  
-  height: 100%;
-  width: 100%;
-  margin-top: -2em;
-  margin-left: auto;
-  margin-right: auto;
-  padding: none;
-  display: flex;
 
-  // position: fixed; // optional depending on what you want
+#background-video {
+  width: 100%;
+  z-index: -100;
+  overflow: hidden;
+  margin-top: -34em;
+}
   
   
-  }
 
   body {
     background-color: black;
   }
 
   .navbar {
-    // background-color: black;
+    background-color: black;
    
   }
 
+  .navbar-light .navbar-brand, .navbar-light .navbar-toggler {
+    color: #9ce0a4;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(232, 166, 166, 0.5);
+}
 
 .btn-lg {
   position: relative;
@@ -110,7 +111,33 @@ header {
 
 .btn-secondary {
   margin-left: 42%;
-  margin-top: 2%
+  margin-top: 22%
+}
+
+.jumbotron{
+
+  
+  margin-left: 5%;
+  margin-bottom: -36rem;
+  background-color: rgba(0, 0, 0, 0.0);
+ 
+
+
+}
+
+.display-3 {
+  font-size: 4.5rem;
+  font-weight: 300;
+  line-height: 1.1;
+  color: whitesmoke;
+}
+
+p {
+  color: whitesmoke;
+}
+
+#definition {
+  text-align: center;
 }
 
   a #start {
