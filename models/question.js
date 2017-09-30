@@ -9,6 +9,9 @@ const Question = new Schema({
   correct_lyric: String,
   artist: String,
   song_title: String,
+  audio_track: String,
+  start_time: Number,
+  duration: Number,
 });
 
 module.exports = mongoose.model('Question', Question);

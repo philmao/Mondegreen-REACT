@@ -26,6 +26,7 @@ export default class Console extends Component {
     const songTitle = this.props.question.song_title;
     console.log(songTitle);
 
+
     if (userInput.toLowerCase().indexOf(songTitle.toLowerCase()) > -1) {
       console.log(true);
       this.state.correct = this.state.correct + 1;
@@ -35,6 +36,7 @@ export default class Console extends Component {
     else {
       $('#comment').text('Wrong! Try Again!');
     }
+
     console.log(`%c User input string = ${userInput} `, 'color: white; background: blue;');
     console.log(`%c Song Title = ${songTitle} `, 'color: white; background: green;');
 
