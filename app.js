@@ -50,16 +50,7 @@ app.use(cookieParser());
 app.use(expressSession);
 app.use(passport.initialize());
 app.use(passport.session());
-
-// app.use(express.static(path.join(__dirname, 'public')));
-// Serve up static assets if in production (running on Heroku)
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, 'public')));
-
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
-//   });
-// }
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Webpack Server
 if (process.env.NODE_ENV !== 'production') {
@@ -77,12 +68,12 @@ if (process.env.NODE_ENV !== 'production') {
   }));
 }
 
-// app.use('/', index);
+app.use('/', index);
 app.use('/api/authentication', authentication);
 app.use('/api/questions', questions);
 app.use('/api', api);
 app.use('/api/users', users);
-app.use('/', index);
+app.use('/*', index);
 
 // Configure Passport
 passport.use(new LocalStrategy(User.authenticate()));

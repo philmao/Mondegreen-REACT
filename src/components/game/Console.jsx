@@ -6,11 +6,11 @@ export default class Console extends Component {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
     this.checkInput = this.checkInput.bind(this);
   }
 
-  checkInput(event) {
-    event.preventDefault();
+  checkInput() {
     const { userInput } = this.props;
     const songTitle = this.props.question.song_title;
     console.log(songTitle);
@@ -27,6 +27,12 @@ export default class Console extends Component {
     this.props.updateInput(event.target.value);
   }
 
+  // catch enter clicks
+  handleKeyPress(target) {
+    if (target.charCode === 13) {
+      this.checkInput();
+    }
+  }
 
   render() {
     const { question } = this.props;
@@ -44,7 +50,7 @@ export default class Console extends Component {
           <Form>
             <FormGroup>
               <Label for="userInput">Input Answer Below</Label>
-              <Input type="text" autoComplete="off" name="userInput" id="userInput" value={this.props.userInput} onChange={this.handleChange} />
+              <Input type="text" autoComplete="off" name="userInput" id="userInput" onKeyPress={this.handleKeyPress} value={this.props.userInput} onChange={this.handleChange} />
             </FormGroup>
             <Button onClick={this.checkInput}>Submit</Button>
           </Form>
