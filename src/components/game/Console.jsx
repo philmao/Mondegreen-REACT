@@ -28,9 +28,10 @@ export default class Console extends Component {
   }
 
   // catch enter clicks
-  handleKeyPress(target) {
+  handleKeyPress(event) {
     // event.preventDefault();
-    if (target.charCode === 13) {
+    if (event.which === 13) {
+      event.preventDefault();
       this.checkInput();
     }
   }

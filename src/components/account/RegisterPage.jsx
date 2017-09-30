@@ -9,6 +9,7 @@ export default class RegisterPage extends React.Component {
     this.compileFormData = this.compileFormData.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleLastNameChange = this.handleLastNameChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -26,6 +27,13 @@ export default class RegisterPage extends React.Component {
   // update state as email value changes
   handleEmailChange(e) {
     this.setState({ email: e.target.value });
+  }
+
+  // catch enter clicks
+  handleKeyPress(target) {
+    if (target.charCode === 13) {
+      this.compileFormData();
+    }
   }
 
   // update state as password value changes
@@ -69,6 +77,7 @@ export default class RegisterPage extends React.Component {
                 placeholder="Username"
                 value={this.state.username}
                 onChange={this.handleUsernameChange}
+                onKeyPress={this.handleKeyPress}
               />
             </FormGroup>
             <FormGroup>
@@ -80,6 +89,7 @@ export default class RegisterPage extends React.Component {
                 placeholder="noreply@musiclist.com"
                 value={this.state.email}
                 onChange={this.handleEmailChange}
+                onKeyPress={this.handleKeyPress}
               />
             </FormGroup>
             <FormGroup>
@@ -91,6 +101,7 @@ export default class RegisterPage extends React.Component {
                 placeholder="First Name"
                 value={this.state.firstName}
                 onChange={this.handleFirstNameChange}
+                onKeyPress={this.handleKeyPress}
               />
             </FormGroup>
             <FormGroup>
@@ -102,6 +113,7 @@ export default class RegisterPage extends React.Component {
                 placeholder="Last Name"
                 value={this.state.lastName}
                 onChange={this.handleLastNameChange}
+                onKeyPress={this.handleKeyPress}
               />
             </FormGroup>
             <FormGroup>
@@ -113,6 +125,7 @@ export default class RegisterPage extends React.Component {
                 placeholder="password"
                 value={this.state.password}
                 onChange={this.handlePasswordChange}
+                onKeyPress={this.handleKeyPress}
               />
             </FormGroup>
             <Button onClick={this.compileFormData}>Register</Button>
