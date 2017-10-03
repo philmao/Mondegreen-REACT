@@ -10,7 +10,7 @@
         "build-prod": "NODE_ENV=production webpack -p --config webpack.config.babel.js"
     },
     "engines": {
-      "node": "8.5.0"
+      "node": "8.5.x"
     },
     "dependencies": {
         "axios": "^0.16.2",
