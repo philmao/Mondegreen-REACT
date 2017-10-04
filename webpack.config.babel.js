@@ -35,6 +35,7 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components|public\/)/,
         loader: 'babel-loader',
+        include: resolve(__dirname, 'src')
       },
       {
         test: /\.css?$/,
@@ -66,15 +67,15 @@ module.exports = {
   ],
 };
 
-if (process.env.NODE_ENV === 'production') {
-  module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin());
-}
+// if (process.env.NODE_ENV === 'production') {
+//   module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin());
+// }
 
-if (process.env.NODE_ENV !== 'production') {
-  module.exports.entry.unshift(
-    'react-hot-loader/patch',
-    'react-hot-loader/babel',
-    'webpack-hot-middleware/client',
-  );
-  module.exports.plugins.unshift(new webpack.HotModuleReplacementPlugin());
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   module.exports.entry.unshift(
+//     'react-hot-loader/patch',
+//     'react-hot-loader/babel',
+//     'webpack-hot-middleware/client',
+//   );
+//   module.exports.plugins.unshift(new webpack.HotModuleReplacementPlugin());
+// }

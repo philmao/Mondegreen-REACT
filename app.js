@@ -50,7 +50,8 @@ app.use(cookieParser());
 app.use(expressSession);
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
+// app.use('/counselling/triage/', express.static(path.join(__dirname, '/build')));
 
 // Webpack Server
 if (process.env.NODE_ENV !== 'production') {
